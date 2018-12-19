@@ -2,16 +2,25 @@
 #include <string>
 #include <android/log.h>
 
+
+
+
 #define  LOGE(...) __android_log_print(ANDROID_LOG_ERROR,"JNI",__VA_ARGS__);
+static const char *mClassName = "com/xygala/dnyjni/Futils";
 extern "C" JNIEXPORT jstring
 stringFromJNI(JNIEnv *env) {
     std::string hello = "动态注册JNI方法......";
     LOGE("JNI stringFromJNI");
     return env->NewStringUTF(hello.c_str());
 }
-static const char *mClassName = "com/xygala/dnyjni/MainActivity";
+extern "C" JNIEXPORT void
+native_prepare(JNIEnv *env, jobject instance, jstring dataSource_) {
+
+};
+
 static const JNINativeMethod method[] = {
-        {"stringFromJNI", "()Ljava/lang/String;", (jstring *) stringFromJNI},
+        {"stringFromJNI",  "()Ljava/lang/String;",  (jstring *) stringFromJNI},
+        {"native_prepare", "(Ljava/lang/String;)V", (void *) native_prepare}
 };
 
 int JNI_OnLoad(JavaVM *vm, void *re) {
@@ -32,3 +41,5 @@ int JNI_OnLoad(JavaVM *vm, void *re) {
     LOGE("init JNI2");
     return JNI_VERSION_1_2;
 }
+
+

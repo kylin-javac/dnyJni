@@ -6,12 +6,10 @@ public class Futils {
     }
 
     public void onError(int errorCode){
-        System.out.println("Java接到回调:"+errorCode);
+        System.out.println("Java接到回调:666666666666"+errorCode);
     }
     public void onPrepare(){
-//        if (null != listener){
-//            listener.onPrepare();
-//        }
+        System.out.println("可以播放了..........");
     }
     public native String stringFromJNI();
 

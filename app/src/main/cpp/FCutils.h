@@ -10,13 +10,6 @@
 
 extern "C" {
 #include <libavformat/avformat.h>
-#include <libavcodec/avcodec.h>
-#include <libavformat/avformat.h>
-#include <libavutil/mathematics.h>
-#include <libavcodec/version.h>
-#include <libavutil/rational.h>
-#include <libavutil/avstring.h>
-#include <libswscale/swscale.h>
 };
 
 class FCutils {

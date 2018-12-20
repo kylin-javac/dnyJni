@@ -12,6 +12,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         TextView tv = (TextView) findViewById(R.id.sample_text);
         futils= new Futils();
+        futils.native_prepare("rtmp://live.hkstv.hk.lxdns.com/live/hks");
         tv.setText(futils.stringFromJNI());
     }
 
